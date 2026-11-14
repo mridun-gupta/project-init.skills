@@ -5,30 +5,30 @@ The skill lives at **`skills/project-init/`** in this repo. Use a one-line insta
 ## One-line installs (once this repo is public)
 
 ```bash
-npx skills add mridun-gupta/skills_project-init      # auto-detects ~12 agents
-gh skill add mridun-gupta/skills_project-init        # GitHub Copilot
-gemini skills install https://github.com/mridun-gupta/skills_project-init
-gemini extensions install https://github.com/mridun-gupta/skills_project-init
+npx skills add mridun-gupta/project-init.skills      # auto-detects ~12 agents
+gh skill add mridun-gupta/project-init.skills        # GitHub Copilot
+gemini skills install https://github.com/mridun-gupta/project-init.skills
+gemini extensions install https://github.com/mridun-gupta/project-init.skills
 ```
 
 Claude Code (repo self-hosts a marketplace):
 
 ```
-/plugin marketplace add mridun-gupta/skills_project-init
+/plugin marketplace add mridun-gupta/project-init.skills
 /plugin install project-init@mridun-gupta-skills
 ```
 
 ## Scripted copy
 
 ```bash
-git clone https://github.com/mridun-gupta/skills_project-init && cd skills_project-init
+git clone https://github.com/mridun-gupta/project-init.skills && cd project-init.skills
 ./scripts/install.sh            # bash — ~/.agents/skills by default
 ./scripts/install.sh --all      # every known location
 ./scripts/install.sh --list     # show targets
 ```
 
 ```powershell
-git clone https://github.com/mridun-gupta/skills_project-init; cd skills_project-init
+git clone https://github.com/mridun-gupta/project-init.skills; cd project-init.skills
 .\scripts\install.ps1           # PowerShell — ~/.agents/skills by default
 .\scripts\install.ps1 -All      # every known location
 .\scripts\install.ps1 -List     # show targets

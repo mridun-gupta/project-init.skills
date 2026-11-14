@@ -18,21 +18,21 @@ Pick whichever your tool supports — details in **[INSTALL.md](INSTALL.md)**:
 
 ```bash
 # Any skill-aware agent (recommended — auto-detects ~12 tools)
-npx skills add mridun-gupta/skills_project-init
+npx skills add mridun-gupta/project-init.skills
 
 # GitHub Copilot
-gh skill add mridun-gupta/skills_project-init
+gh skill add mridun-gupta/project-init.skills
 
 # Claude Code — repo is its own marketplace
-/plugin marketplace add mridun-gupta/skills_project-init
+/plugin marketplace add mridun-gupta/project-init.skills
 
 # Gemini CLI
-gemini extensions install https://github.com/mridun-gupta/skills_project-init
-gemini skills install https://github.com/mridun-gupta/skills_project-init
+gemini extensions install https://github.com/mridun-gupta/project-init.skills
+gemini skills install https://github.com/mridun-gupta/project-init.skills
 
 # Manual / scripted copy to tool dirs
-git clone https://github.com/mridun-gupta/skills_project-init
-cd skills_project-init
+git clone https://github.com/mridun-gupta/project-init.skills
+cd project-init.skills
 ./scripts/install.sh          # or: pwsh scripts/install.ps1 (-All for every tool)
 ```
 
