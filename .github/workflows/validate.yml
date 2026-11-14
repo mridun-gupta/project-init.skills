@@ -1,0 +1,51 @@
+name: validate-skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  frontmatter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate SKILL.md frontmatter
+        run: |
+          python - <<'EOF'
+          import re, sys, pathlib
+          try:
+              import yaml
+          except ImportError:
+              yaml = None
+          p = pathlib.Path("skills/project-init/SKILL.md")
+          raw = p.read_text(encoding="utf-8")
+          m = re.match(r"^---\n(.*?)\n---\n", raw, re.S)
+          assert m, "SKILL.md missing YAML frontmatter"
+          fm = m.group(1)
+          data = yaml.safe_load(fm) if yaml else dict(
+              line.split(": ", 1) for line in fm.splitlines() if ": " in line
+          )
+          assert data["name"] == "project-init" == p.parent.name, "name must match folder"
+          assert len(data["description"]) <= 1024, "description over 1024 chars"
+          for field in ("description", "argument-hint", "license"):
+              assert field in data, f"missing {field}"
+          print("frontmatter OK:", {k: data[k] for k in ("name", "license")})
+          EOF
+      - name: Check template tokens are documented
+        run: |
+          python - <<'EOF'
+          import re, pathlib
+          skill = pathlib.Path("skills/project-init/SKILL.md").read_text(encoding="utf-8")
+          documented = set(re.findall(r"\{\{([A-Z_]+)\}\}", skill))
+          used = set()
+          for f in pathlib.Path("skills/project-init/templates").rglob("*"):
+              if f.is_file():
+                  used |= set(re.findall(r"\{\{([A-Z_]+)\}\}", f.read_text(encoding="utf-8")))
+          missing = used - documented
+          assert not missing, f"tokens used in templates but undocumented in SKILL.md: {missing}"
+          print("all template tokens documented:", sorted(used))
+          EOF

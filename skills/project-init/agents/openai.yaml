@@ -1,0 +1,7 @@
+display_name: "Project Init"
+short_description: "Bootstrap a project to a universal docs standard — git init, PRD/TRD/EXECUTED, 4-audience knowledge base, header conventions."
+default_prompt: "Run the project-init workflow on this project. Ask me for the project name, one-line purpose, mode (full or lite), and author before scaffolding."
+interface:
+  invocation: "/project-init"
+policy:
+  requires_git: false

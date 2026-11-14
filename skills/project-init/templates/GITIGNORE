@@ -1,0 +1,49 @@
+# {{PROJECT_NAME}} — baseline .gitignore (extend per stack)
+# Docs: docs/README.md · Last-Updated: {{ISO_DATE}} · Author: {{AUTHOR}}
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.idea/
+.vs/
+*.swp
+*.swo
+*~
+
+# Environment & secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+
+# Dependencies
+node_modules/
+vendor/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Build output
+dist/
+build/
+out/
+target/
+*.o
+*.exe
+*.dll
+*.so
+
+# Logs & caches
+*.log
+logs/
+.cache/
+.coverage
+coverage/
+
+# NOTE: keep .env.example, lockfiles, and CI config committed.

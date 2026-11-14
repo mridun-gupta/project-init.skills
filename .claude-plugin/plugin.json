@@ -1,0 +1,11 @@
+{
+  "name": "project-init",
+  "description": "Initialize or upgrade a project to a universal documentation standard: git init, PRD/TRD/EXECUTED docs, a four-audience docs/ knowledge base (ai, technical, layman, non-technical), AGENTS.md conventions, and header comments on every file with doc refs, ISO-8601 timestamps, and author.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mridun-gupta"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/mridun-gupta/skills_project-init",
+  "keywords": ["project-scaffolding", "documentation", "prd", "trd", "knowledge-base", "conventions"]
+}

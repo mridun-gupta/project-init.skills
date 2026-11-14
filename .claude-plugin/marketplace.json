@@ -1,0 +1,17 @@
+{
+  "name": "mridun-gupta-skills",
+  "description": "Universal agent skills by mridun-gupta — cross-IDE, cross-model SKILL.md packages.",
+  "owner": {
+    "name": "mridun-gupta"
+  },
+  "plugins": [
+    {
+      "name": "project-init",
+      "source": "./",
+      "description": "Bootstrap any project to a universal documentation standard: git init, PRD/TRD/EXECUTED, four-audience docs/ KB, AGENTS.md conventions, ISO-timestamped file headers.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["scaffolding", "documentation", "conventions", "knowledge-base"]
+    }
+  ]
+}

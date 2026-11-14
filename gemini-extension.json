@@ -1,0 +1,7 @@
+{
+  "name": "project-init",
+  "version": "1.0.0",
+  "description": "Initialize or upgrade a project to a universal documentation standard: git init, PRD/TRD/EXECUTED docs, a four-audience docs/ knowledge base, AGENTS.md conventions, and ISO-timestamped file headers.",
+  "repository": "https://github.com/mridun-gupta/skills_project-init",
+  "license": "MIT"
+}
