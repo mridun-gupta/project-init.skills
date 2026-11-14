@@ -1,44 +1,38 @@
 # Publishing `project-init` — directory & marketplace checklist
 
-Status legend: `[ ]` not submitted · `[~]` submitted/pending · `[x]` live.
+Status legend: `[x]` live/automatic · `[~]` submitted or in progress · `[ ]` needs action.
 
-## Tier 0 — works automatically once the repo is public
+## Done / automatic
 
-No submission needed; verify each after pushing:
+- [x] **GitHub repo public** — https://github.com/mridun-gupta/project-init.skills
+- [x] **v1.0.0 release** — https://github.com/mridun-gupta/project-init.skills/releases/tag/v1.0.0
+- [x] **Repo topics set** (20) incl. `gemini-cli-extension`, `agent-skills`, `claude-code`, `codex`, `cursor`, `github-copilot`
+- [x] **skills.sh** — no submission exists; it auto-indexes on `npx skills add` telemetry. First install already ran → appears once it re-crawls. Verify: `npx skills add mridun-gupta/project-init.skills --list` (already returns `project-init`)
+- [x] **Gemini CLI extension gallery** — no submission; crawler finds repos with topic `gemini-cli-extension` + `gemini-extension.json` at root. Both in place → appears in geminicli.com/extensions within days
+- [x] **Claude Code marketplace** — self-hosted via `.claude-plugin/`: `/plugin marketplace add mridun-gupta/project-init.skills` → install `project-init`. Live now
+- [x] **`npx skills` / `gh skill` / `gemini extensions|skills install` / manual copy** — all verified working
 
-- [ ] `npx skills add mridun-gupta/project-init.skills` — skills.sh installer, detects ~12 agents
-- [ ] `gh skill add mridun-gupta/project-init.skills` — GitHub Copilot
-- [ ] Claude Code: `/plugin marketplace add mridun-gupta/project-init.skills` → `/plugin install project-init@mridun-gupta-skills` (`.claude-plugin/` self-hosts this)
-- [ ] `gemini extensions install https://github.com/mridun-gupta/project-init.skills` and `gemini skills install <same>`
-- [ ] Manual copy per INSTALL.md (`~/.agents/skills`, `~/.claude/skills`, …)
-- [ ] Repo hygiene: topics set (`agent-skills claude-skills codex cursor copilot gemini-cli antigravity windsurf`), `v1.0.0` release published
+## User action required (web forms / sign-in)
 
-## Tier 1 — registries & directories (submit each)
-
-| # | Directory | Where/how to submit | Status |
-|---|---|---|---|
-| 1 | **skills.sh / skillsboard.sh** (skills community index) | Site submission / repo PR; repo qualifies as-is (root + `skills/` layout scanned) | [ ] |
-| 2 | **anthropics/skills** (official Anthropic skills repo) | PR adding `project-init` under their community/experimental skills; follow repo CONTRIBUTING + `claude plugin validate` output | [ ] |
-| 3 | **Cursor directory** (cursor.directory / Cursor community listings) | Submit repo link + one-line description | [ ] |
-| 4 | **agentskills.io** (Agent Skills spec site) | Resources/community list — link repo | [ ] |
-| 5 | **Gemini CLI extensions gallery** (geminicli.com/extensions) | `gemini-extension.json` is already in place; submit repo to the gallery/registry used by the site | [ ] |
-| 6 | **awesome-agent-skills** | PR: add `mridun-gupta/project-init.skills` under project/scaffolding skills | [ ] |
-| 7 | **awesome-claude-code / awesome-claude-code-plugins** | PR under Skills/Plugins | [ ] |
-| 8 | **awesome-copilot** | PR under skills/instructions | [ ] |
-| 9 | **awesome-cursor / cursor community lists** | PR or issue submission | [ ] |
-| 10 | **Codex community lists** (awesome-codex, OpenAI community forum Showcase) | PR / forum post linking repo | [ ] |
-| 11 | **ChatGPT/Codex universal plugin directory** | `agents/openai.yaml` ships in the skill — submit repo to OpenAI's plugin/plugin-directory process | [ ] |
-| 12 | **JetBrains Junie / Kiro / Windsurf / OpenCode / Amp community registries** | Each has community lists — submit repo + description | [ ] |
+| # | Directory | Mechanism | Action | Status |
+|---|---|---|---|---|
+| 1 | **cursor.directory** | Web form (no PRs) | Sign in → https://cursor.directory/plugins/new → paste repo URL → it auto-detects `skills/project-init/SKILL.md` → Submit (security scan then live) | [ ] |
+| 2 | **awesome-claude-code** (`hesreallyhim`) | Issue form | Submit once eligible — rule: repo ≥14 days old w/ activity **or** ≥100 stars | [ ] wait |
+| 3 | **awesome-agent-skills / awesome-copilot / awesome-cursor** | PRs to each list | Add line: `- [project-init](https://github.com/mridun-gupta/project-init.skills) - Universal Agent Skill: git init, PRD/TRD/EXECUTED, 4-audience docs KB, header conventions` | [ ] |
+| 4 | **primorum.ai/skills**, **skillsboard.sh** | Community directory submissions | Submit repo + one-liner (below) | [ ] |
+| 5 | **Codex/ChatGPT plugin directory** | OpenAI-curated | No public submission; share repo in OpenAI community forum Showcase + `awesome-codex`-type lists | [ ] |
+| 6 | **anthropics/skills** | PR — **effectively closed** | Public evidence: no maintainer engagement on community PRs, no CONTRIBUTING policy. Skip unless policy appears | [ ] skip |
+| 7 | **agentskills.io** | Spec site, no directory | Nothing to submit; repo already spec-compliant | [x] n/a |
 
 ## Copy-paste listing text
 
 **Name:** project-init
-**One-liner:** Universal Agent Skill — initializes any project with git, PRD/TRD/EXECUTED docs, a four-audience docs/ knowledge base, and enforced file-header conventions (doc refs, ISO timestamps, author). Works in Claude Code, Codex, Cursor, Copilot, Devin, Antigravity, Gemini, Windsurf, Zed and more.
-**Install:** `npx skills add mridun-gupta/project-init.skills` or copy `skills/project-init/` into your tool's skills dir.
-**Tags:** agent-skills, scaffolding, documentation, conventions, prd, knowledge-base
+**One-liner:** Universal Agent Skill — initializes any project with git, PRD/TRD/EXECUTED docs, a four-audience docs/ knowledge base, AGENTS.md conventions, and ISO-timestamped file headers. Works in Claude Code, Codex, Cursor, Copilot, Devin, Antigravity, Gemini, Windsurf, Zed and more.
+**Install:** `npx skills add mridun-gupta/project-init.skills`
+**Topics:** `agent-skills claude-code codex cursor github-copilot scaffolding documentation`
 
-## Tier 2 — promotion
+## Promotion (optional, later)
 
 - [ ] dev.to / Hashnode post + terminal GIF of `/project-init` scaffolding a repo
-- [ ] r/ClaudeAI, r/cursor, r/ChatGPTCoding, r/LocalLLaMA (works with local models via prompt paste)
-- [ ] Show HN / Product Hunt (optional, once a few stars exist)
+- [ ] r/ClaudeAI, r/cursor, r/ChatGPTCoding, OpenAI community forum
+- [ ] Show HN / Product Hunt once a few stars exist
